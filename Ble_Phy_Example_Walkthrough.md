@@ -146,26 +146,33 @@ Next,Host is configured by creating `ble_hs_cfg` structure and setting up the ca
  ble_hs_cfg.store_status_cb = ble_store_util_status_rr;
  ```
  
+ 
 Next,Data Structures are created and intialized to track connected peers using `peer_init()'. This function creates memmory buffers to gnereate the  memory pools like `peer_pool` ,`peer_svc_pool` ,`peer_chr_pool` ,`peer_dsc_pool`.
 ```c
  rc = peer_init(MYNEWT_VAL(BLE_MAX_CONNECTIONS), 64, 64, 64);
 ```
 
+
 Next , main function calls `ble_svc_gap_device_name_set()` to set the default device name. "blecent_phy" is passed as default device name to this function.
 ```c
 rc = ble_svc_gap_device_name_set("blecent-phy");
 ```
+
 main function calls  `ble_store_config_init()` to configure the host by setting up the storage callbacks which handle the read ,write and deletion of security material.
 ```c
- rc = ble_svc_gap_device_name_set("blecent-phy");
+/* XXX Need to have template for store */
+    ble_store_config_init();
 ```
 
 
 The main function ends by creating task where nimble will run using `nimble_port_freertos_init()` . This enables the nimble stack by using `esp_nimble_enable()`. 
 ```c
 nimble_port_freertos_init(blecent_host_task);
+
 ```
 `esp_nimble_enable()` create a task where nimble host will run.It is not strictly necessary to have separate task for NimBLE host, but since something needs to handle default queue.
+
+
 
 
 
