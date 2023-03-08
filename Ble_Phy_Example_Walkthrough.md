@@ -150,6 +150,7 @@ Next,Host is configured by creating `ble_hs_cfg` structure and setting up the ca
 Next,Data Structures are created and intialized to track connected peers using `peer_init()'. This function creates memmory buffers to gnereate the  memory pools like `peer_pool` ,`peer_svc_pool` ,`peer_chr_pool` ,`peer_dsc_pool`.
 ```c
  rc = peer_init(MYNEWT_VAL(BLE_MAX_CONNECTIONS), 64, 64, 64);
+ 
 ```
 
 
