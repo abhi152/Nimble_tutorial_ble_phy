@@ -1,8 +1,8 @@
-# PHY Central Example Walkthrough
+# BLE Central PHY Example Walkthrough
 
 ## Introduction
 
-In this tutorial the ble_phy central example code for the ESP32 is reviewed.The code implements a BLE Cental PHY , which establishes connection on LE 1M PHY and switch to LE 2M PHY once connection is established.The Central then pefrom GATT read operation against specified peer and disconnect once this is completed.
+In this tutorial the ble_phy central example code for the ESP32 is reviewed.The code implements a BLE Cental PHY , which establishes connection on LE 1M PHY and switch to LE 2M PHY once connection is established.The Central then pefrom GATT read operation against specified peer and disconnect once this is completed.This example aims at understanding how to establish connections on preferred PHY and changing LE PHY once the connection is established.
 
 ## Includes
 
@@ -170,7 +170,7 @@ The main function ends by creating task where nimble will run using `nimble_port
 nimble_port_freertos_init(blecent_host_task);
 
 ```
-`esp_nimble_enable()` create a task where nimble host will run.It is not strictly necessary to have separate task for NimBLE host, but since something needs to handle default queue.
+`esp_nimble_enable()` create a task where nimble host will run.It is not strictly necessary to have separate task for NimBLE host, but since something needs to handle default queue ,it is easier to create sperate task.
 
 
 
