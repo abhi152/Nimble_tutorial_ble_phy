@@ -175,8 +175,10 @@ nimble_port_freertos_init(blecent_host_task);
 
 
 
-## Intializaion to Default 1M dataspeed .
+## Intializaion of LE PHY to Default 1M dataspeed.
+ 1M PHY is deafault PHY for BLE devices which enables it to provides data rate of 1 Mbps.It is used while establishing connection between divices and maintians the backword comapability with all those divises who dont have BLE5.0 support.`set_default_le_phy_before_conn()` function set default LE PHY before establishing connection.
 
+```c
 void set_default_le_phy_before_conn(uint8_t tx_phys_mask, uint8_t rx_phys_mask)
  {
     int rc = ble_gap_set_prefered_default_le_phy(tx_phys_mask, rx_phys_mask);
@@ -186,10 +188,19 @@ void set_default_le_phy_before_conn(uint8_t tx_phys_mask, uint8_t rx_phys_mask)
          MODLOG_DFLT(ERROR, "Failed to set default LE PHY");
      }
  }
+ 
+ ```
 
-## Setting to 2M dataspeed .
-Where the 2M phy is getting intialised
+## Setting LE PHY to 2M dataspeed .
 
+2M PHY is introduced in BLE5.0 to increased the symbol rate at the physical layer.It provides a symbol rate of 2 Mega symbols per seconds where each symbol corresponds to single bit.This allows the user to to double the number of bits sent over the air during a given period , or conversly reduce energy consumption for a given amount od data by having the necessary transmit time. 
+
+Below lines changes default LE PHY to 2M PHY.
+
+` tx_phys_mask = BLE_HCI_LE_PHY_2M_PREF_MASK`
+` rx_phys_mask = BLE_HCI_LE_PHY_2M_PREF_MASK` 
+
+```c
 void set_prefered_le_phy_after_conn(uint16_t conn_handle)
   {
       uint8_t tx_phys_mask = 0, rx_phys_mask = 0;
@@ -198,19 +209,21 @@ void set_prefered_le_phy_after_conn(uint16_t conn_handle)
  
      rx_phys_mask = BLE_HCI_LE_PHY_2M_PREF_MASK;
  
-     int rc = ble_gap_set_prefered_le_phy(conn_handle, tx_phys_mask, rx_phys_mask, 0);
+     int rc = ble_gap_set_prefered_le_phy(conn_handle, tx_phys_mask, rx_phys_mask,0);
      if (rc == 0) {
          MODLOG_DFLT(INFO, "Prefered LE PHY set to LE_PHY_2M successfully");
      } else {
          MODLOG_DFLT(ERROR, "Failed to set prefered LE_PHY_2M");
      }
  }
+ ```
  
-    path for above example : examples/bluetooth/nimble/ble_phy/phy_cent/main/main.c
+   
    
 
 ## Read Operation
 
+```c
 blecent_read(const struct peer *peer)
   {   
       const struct peer_chr *chr;
@@ -239,6 +252,7 @@ blecent_read(const struct peer *peer)
       /* Terminate the connection. */
       ble_gap_terminate(peer->conn_handle, BLE_ERR_REM_USER_CONN_TERM);
   }
+  ```
 
 
 
