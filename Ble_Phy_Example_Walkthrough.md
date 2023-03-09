@@ -6,7 +6,7 @@ In this tutorial, the ble_phy central example code for the ESP32 is reviewed. Th
 
 ## Includes
 
-This example is located in the examples folder of the ESP-IDF under the [bluetooth/nimble/ble_phy/phy_cent/main](../main). The [main.c](../main/main.c) file located in the main folder contains all the functionality that we are going to review. The header files contained in [main.c](../main/main.c) are:
+This example is located in the examples folder of the ESP-IDF under the [ble_phy/phy_cent/main](https://github.com/espressif/esp-idf/tree/master/examples/bluetooth/nimble/ble_phy/phy_cent/). The [main.c](https://github.com/espressif/esp-idf/tree/master/examples/bluetooth/nimble/ble_phy/phy_cent/main/main.c) file located in the main folder contains all the functionality that we are going to review. The header files contained in [main.c](https://github.com/espressif/esp-idf/tree/master/examples/bluetooth/nimble/ble_phy/phy_cent/main/main.c) are:
 
 ```c
 #include "esp_log.h"
