@@ -178,15 +178,14 @@ nimble_port_freertos_init(blecent_host_task);
 ## Intializaion to Default 1M dataspeed .
 
 void set_default_le_phy_before_conn(uint8_t tx_phys_mask, uint8_t rx_phys_mask)
-114 {
-115     int rc = ble_gap_set_prefered_default_le_phy(tx_phys_mask, rx_phys_mask);
-116     if (rc == 0) {
-117         MODLOG_DFLT(INFO, "Default LE PHY set successfully; tx_phy = %d, rx_phy = %d",
-118                     tx_phys_mask, rx_phys_mask);
-119     } else {
-120         MODLOG_DFLT(ERROR, "Failed to set default LE PHY");
-121     }
-122 }
+ {
+    int rc = ble_gap_set_prefered_default_le_phy(tx_phys_mask, rx_phys_mask);
+     if (rc == 0) {         MODLOG_DFLT(INFO, "Default LE PHY set successfully; tx_phy = %d, rx_phy = %d",
+                     tx_phys_mask, rx_phys_mask);
+     } else {
+         MODLOG_DFLT(ERROR, "Failed to set default LE PHY");
+     }
+ }
 
 ## Setting to 2M dataspeed .
 Where the 2M phy is getting intialised
