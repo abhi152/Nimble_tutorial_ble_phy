@@ -26,10 +26,10 @@ This example is located in the examples folder of the ESP-IDF under the [ble_phy
 These `includes` are required for the FreeRTOS and underlying system components to run, including the logging functionality and a library to store data in non-volatile flash memory. We are interested in `“nimble_port.h”`, `“nimble_port_freertos.h”`, `"ble_hs.h"` and `“ble_svc_gap.h”`, `“phy_cent.h”` which expose the BLE APIs required to implement this example.
 
 * `nimble_port.h`: Includes the declaration of functions required for the initialization of the nimble stack. 
-* `nimble_port_freertos.h`: initializes and enables nimble host task.
+* `nimble_port_freertos.h`: Initializes and enables nimble host task.
 * `ble_hs.h`: Defines the functionalities to handle the host event 
 * `ble_svc_gap.h`:
-* `phy_cenr.h`: 
+* `phy_cent.h`: 
 
 ## Main Entry Point
 
@@ -175,7 +175,7 @@ nimble_port_freertos_init(blecent_host_task);
 
 
 
-## Intializaion of LE PHY to Default 1M data speed.
+## Intializaion of LE PHY to Default 1M PHY .
  1M PHY is the default PHY for BLE devices which enables it to provide a data rate of 1 Mbps. It is used while establishing the connection between devices and maintains backward compatibility with all those devices that don't have BLE5.0 support.`set_default_le_phy_before_conn()` function set default LE PHY before establishing a connection.
 
 ```c
@@ -191,7 +191,7 @@ void set_default_le_phy_before_conn(uint8_t tx_phys_mask, uint8_t rx_phys_mask)
  
  ```
 
-## Setting LE PHY to 2M data speed.
+## Setting LE PHY to 2M PHY.
 
 2M PHY is introduced in BLE5.0 to increase the symbol rate at the physical layer. It provides a symbol rate of 2 Mega symbols per second where each symbol corresponds to a single bit. This allows the user to double the number of bits sent over the air during a given period, or conversely reduce energy consumption for a given amount of data by having the necessary transmit time. 
 
