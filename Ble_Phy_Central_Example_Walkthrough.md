@@ -222,7 +222,10 @@ void set_prefered_le_phy_after_conn(uint16_t conn_handle)
    
 
 ## Read Operation
+ `blecent_read` reads the supported LE PHY characteristic. If the peer does not support a required service, characteristic, or
+ descriptor, then the peer lied when it claimed support for the alert notification service. When this happens, or if a GATT procedure fails this function immediately terminates the connection.
 
+  
 ```c
 blecent_read(const struct peer *peer)
   {   
@@ -256,6 +259,27 @@ blecent_read(const struct peer *peer)
 
 
 
+## Structure of Peer
+
+The structure of a peer includes fields such as its connection handle, a pointer to the next peer, a list of discovered gatt services, tracking parameters for the service discovery process, and the callbacks that get executed when service discovery completes.
+
+```c
+struct peer {
+    SLIST_ENTRY(peer) next;
+
+    uint16_t conn_handle;
+
+  
+    struct peer_svc_list svcs;
+
+   
+    uint16_t disc_prev_chr_val;
+    struct peer_svc *cur_svc;
+
+    peer_disc_fn *disc_cb;
+    void *disc_cb_arg;
+};
+```
 
 
 
