@@ -28,8 +28,8 @@ These `includes` are required for the FreeRTOS and underlying system components 
 * `nimble_port.h`: Includes the declaration of functions required for the initialization of the nimble stack. 
 * `nimble_port_freertos.h`: Initializes and enables nimble host task.
 * `ble_hs.h`: Defines the functionalities to handle the host event 
-* `ble_svc_gap.h`:
-* `phy_cent.h`: 
+* `ble_svc_gap.h`:Defines the macros for device name ,device apperance and declare the function to set them. 
+* `phy_cent.h`: Defines the macro name `LE_PHY_UUID16` and `LE_PHY_CHR_UUID16`.
 
 ## Main Entry Point
 
@@ -222,8 +222,8 @@ void set_prefered_le_phy_after_conn(uint16_t conn_handle)
    
 
 ## Read Operation
- `blecent_read` reads the supported LE PHY characteristic. If the peer does not support a required service, characteristic, or
- descriptor, then the peer lied when it claimed support for the alert notification service. When this happens, or if a GATT procedure fails this function immediately terminates the connection.
+
+`blecent_read` reads the supported LE PHY characteristic. If the peer does not support a required service, characteristic, or descriptor, then the peer lied when it claimed support for the alert notification service. When this happens, or if a GATT procedure fails this function immediately terminates the connection.
 
   
 ```c
@@ -256,6 +256,8 @@ blecent_read(const struct peer *peer)
       ble_gap_terminate(peer->conn_handle, BLE_ERR_REM_USER_CONN_TERM);
   }
   ```
+
+
 
 
 
