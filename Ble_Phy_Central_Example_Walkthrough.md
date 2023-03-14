@@ -175,8 +175,8 @@ nimble_port_freertos_init(blecent_host_task);
 
 
 
-## Intializaion of LE PHY to Default 1M dataspeed.
- 1M PHY is deafault PHY for BLE devices which enables it to provides data rate of 1 Mbps.It is used while establishing connection between divices and maintians the backword comapability with all those divises who dont have BLE5.0 support.`set_default_le_phy_before_conn()` function set default LE PHY before establishing connection.
+## Intializaion of LE PHY to Default 1M data speed.
+ 1M PHY is the default PHY for BLE devices which enables it to provide a data rate of 1 Mbps. It is used while establishing the connection between devices and maintains backward compatibility with all those devices that don't have BLE5.0 support.`set_default_le_phy_before_conn()` function set default LE PHY before establishing a connection.
 
 ```c
 void set_default_le_phy_before_conn(uint8_t tx_phys_mask, uint8_t rx_phys_mask)
@@ -191,11 +191,11 @@ void set_default_le_phy_before_conn(uint8_t tx_phys_mask, uint8_t rx_phys_mask)
  
  ```
 
-## Setting LE PHY to 2M dataspeed .
+## Setting LE PHY to 2M data speed.
 
-2M PHY is introduced in BLE5.0 to increased the symbol rate at the physical layer.It provides a symbol rate of 2 Mega symbols per seconds where each symbol corresponds to single bit.This allows the user to to double the number of bits sent over the air during a given period , or conversly reduce energy consumption for a given amount od data by having the necessary transmit time. 
+2M PHY is introduced in BLE5.0 to increase the symbol rate at the physical layer. It provides a symbol rate of 2 Mega symbols per second where each symbol corresponds to a single bit. This allows the user to double the number of bits sent over the air during a given period, or conversely reduce energy consumption for a given amount of data by having the necessary transmit time. 
 
-Below lines changes default LE PHY to 2M PHY.
+The following lines change the default LE PHY to 2M PHY.
 
 ` tx_phys_mask = BLE_HCI_LE_PHY_2M_PREF_MASK`
 ` rx_phys_mask = BLE_HCI_LE_PHY_2M_PREF_MASK` 
