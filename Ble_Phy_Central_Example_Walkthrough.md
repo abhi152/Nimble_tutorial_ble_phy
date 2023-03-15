@@ -21,6 +21,7 @@ This example is located in the examples folder of the ESP-IDF under the [ble_phy
 #include "console/console.h"
 #include "services/gap/ble_svc_gap.h"
 #include "phy_cent.h"
+#include "string.h"
 
 ```
 
