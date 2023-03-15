@@ -4,6 +4,7 @@
 
 In this tutorial, the ble_phy central example code for the espressif chipsets with BLE5.0 support is reviewed. This example aims at understanding how to establish connections on preferred PHY and changing LE PHY once the connection is established. The code implements a BLE Central PHY, which establishes a connection on LE 1M PHY and switches to LE 2M PHY once the connection is established. The Central then performs GATT read operation against a specified peer and disconnects once this is completed.
 
+
 ## Includes
 
 This example is located in the examples folder of the ESP-IDF under the [ble_phy/phy_cent/main](https://github.com/espressif/esp-idf/tree/master/examples/bluetooth/nimble/ble_phy/phy_cent/). The [main.c](https://github.com/espressif/esp-idf/tree/master/examples/bluetooth/nimble/ble_phy/phy_cent/main/main.c) file located in the main folder contains all the functionality that we are going to review. The header files contained in [main.c](https://github.com/espressif/esp-idf/tree/master/examples/bluetooth/nimble/ble_phy/phy_cent/main/main.c) are:
