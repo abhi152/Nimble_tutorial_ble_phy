@@ -25,11 +25,11 @@ This example is located in the examples folder of the ESP-IDF under the [ble_phy
 
 These `includes` are required for the FreeRTOS and underlying system components to run, including the logging functionality and a library to store data in non-volatile flash memory. We are interested in `“nimble_port.h”`, `“nimble_port_freertos.h”`, `"ble_hs.h"` and `“ble_svc_gap.h”`, `“phy_cent.h”` which expose the BLE APIs required to implement this example.
 
-* `nimble_port.h`: Includes the declaration of functions required for the initialization of the nimble stack. 
+* `nimble_port.h`: Includes the declaration of functions required for the initialization of the nimble stack.
 * `nimble_port_freertos.h`: initializes and enables nimble host task.
-* `ble_hs.h`: Defines the functionalities to handle the host event 
+* `ble_hs.h`: Defines the functionalities to handle the host event
 * `ble_svc_gap.h`:
-* `phy_cenr.h`: 
+* `phy_cenr.h`:
 
 ## Main Entry Point
 
